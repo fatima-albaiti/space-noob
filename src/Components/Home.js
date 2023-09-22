@@ -1,8 +1,12 @@
-import { render } from "@testing-library/react";
-
+import About from "./About";
+import Contact from "./Contact";
+import '../index.css'
 function Home() {
-    return render(
-        <div></div>
+    return (
+        <>
+        <About />
+        <Contact />
+        </>
     )
 }
 
