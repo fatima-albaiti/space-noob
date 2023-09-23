@@ -29,3 +29,10 @@ code {
   width: 100%;
   max-width: 500px;
 }
+
+.about {
+  width: auto;
+  margin: 20%;
+  padding: 50px;
+  border: solid white 1px;
+}
