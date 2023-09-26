@@ -1,7 +1,13 @@
+import NewsCard from "./NewsCard";
+
 function News() {
     return (
-        <div>
-            News Page
+        <div className="content news">
+            <h2 className="page-title">Space Related News</h2>
+
+            <NewsCard />
+            <NewsCard />
+            <NewsCard />
         </div>
     )
 }
