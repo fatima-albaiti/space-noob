@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 function NewsCard() {
+    const MAX_HEIGHT = 200;
+
+    const { ellipsis, setEllipsis } = useState(false);
+
+
     return (
         <div className='article-card'>
         <Row>
@@ -12,7 +18,9 @@ function NewsCard() {
             <Col className='card-text' sm={6} xs={12} md={8} lg={9}>
                 <h4>Article Title</h4>
                 <p className='date'>01/01/2023</p>
-                <p className='summary'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                <p className='summary multiline-ellipsis'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                  <Button className='float-end float-bottom read-more btn-lg'>Read more</Button>
             </Col>

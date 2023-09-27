@@ -38,7 +38,7 @@ code {
 }
 
 .content {
-  height: 100vh;
+  /* height: 100vh; */
   width: 90%;
   margin: 10%;
   margin-top: 100px;
@@ -50,8 +50,6 @@ code {
 
 .article-card {
   margin-top: 50px;
-  margin-bottom: 80px;
-
 }
 
 .date {
@@ -69,7 +67,7 @@ code {
 
 .read-more {
   border-radius: 40px!important;
-  font-size: x-large!important;
+  font-size: large!important;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -79,4 +77,12 @@ code {
 .card-text {
   padding-bottom: 50px!important;
   position: relative;
+}
+
+.multiline-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap; /* let the text wrap preserving spaces */
 }

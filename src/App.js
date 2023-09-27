@@ -20,6 +20,7 @@ function App() {
           <Route path='/merch' element={<Merch />} />
         </Routes>
       </header>
+      
     </div>
   );
 }
