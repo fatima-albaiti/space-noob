@@ -19,9 +19,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+  /* background-image: url(img/bg.jpg);
+  background-size: contain;
+  background-repeat: repeat-y repeat-y; */
 }
 
 .App-link {
