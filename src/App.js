@@ -8,11 +8,13 @@ import Merch from './Components/Merch';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './Components/Post';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   return (
     <><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"></link><div className="App">
       <header className="App-header">
+        <ScrollToTop />
         <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
