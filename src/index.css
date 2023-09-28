@@ -56,6 +56,7 @@ code {
 
 .article-card {
   margin-top: 50px;
+  background-color: black;
 }
 
 .date {
@@ -90,10 +91,12 @@ code {
   position: absolute;
   bottom: 0;
   right: 0;
-  margin-right: 20px;
+  margin-right: 30px;
+  margin-bottom: 20px;
 }
 
 .card-text {
+  padding-top: 20px;
   padding-bottom: 50px!important;
   position: relative;
 }
@@ -106,10 +109,64 @@ code {
   white-space: pre-wrap; /* let the text wrap preserving spaces */
 }
 
+.two-lines {
+  -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+}
+
+.three-lines {
+  -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+}
+
 .share-icon {
   margin-inline-end: 10px;
 }
 
 .share-icons {
   margin-bottom: 20px;
+}
+
+.amazon-card {
+  height: 80%;
+  max-height: 480px;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: black!important;
+  /* opacity: 0.7; */
+  color: white!important;
+}
+
+.amazon-card img {
+  height: 60%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.amazon-card p {
+  font-size: medium;
+  padding-bottom: 0px!important;
+}
+
+.amazon-card button {
+  /* margin-bottom: 10px; */
+  border-radius: 40px;
+}
+
+@media screen and (max-width: 450px) {
+  .btn-group {
+    flex-direction: column;
+  }
+  .btn-group .btn {
+    border-radius: 0 !important;
+    margin-left: 0px !important;
+    margin-top: -1px !important;
+  }
+  .btn-group .btn:first-child {
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+  }
+  .btn-group .btn:last-child {
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+  }
 }

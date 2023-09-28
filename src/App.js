@@ -3,7 +3,7 @@ import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import News from './Components/News';
 import Blog from './Components/Blog';
-import Merch from './Components/Merch';
+import Store from './Components/Store';
 
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,7 +20,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/news' element={<News />} />
-          <Route path='/store' element={<Merch />} />
+          <Route path='/store' element={<Store />} />
           <Route path='/article' element={<Post />} />
         </Routes>
       </header>

@@ -21,7 +21,7 @@ function NewsCard(props) {
             <Col className='card-text' sm={6} xs={12} md={8} lg={9}>
                 <h4>{article.title}</h4>
                 <p className='date'>{article.date}</p>
-                <p className='summary multiline-ellipsis'> {article.content}</p>
+                <p className='summary multiline-ellipsis three-lines'> {article.content}</p>
                  <Button onClick={handleReadMore} className='float-end float-bottom read-more btn-lg'>Read more</Button>
             </Col>
         </Row>
