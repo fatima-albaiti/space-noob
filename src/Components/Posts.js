@@ -17,7 +17,7 @@ function Posts(props) {
                 author: "",
                 src: "",
                 srcUrl: "",
-                imgUrl: "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
+                imgUrl: "https://m.media-amazon.com/images/I/A1KS+MYYXkL._SL1500_.jpg"
             },
 
             {
@@ -89,7 +89,7 @@ function Posts(props) {
             <h2 className="page-title">{postType === PostType.ARTICLE ? "Space Related News" : "Blog"}</h2>
 
             {renderPosts(postsList)}
-            
+
         </div>
     )
 }

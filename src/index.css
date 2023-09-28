@@ -72,13 +72,17 @@ code {
   font-size: large;
   width: 80%;
   max-width: 1020px;
-  
 }
 
-.news img {
+.news-article img {
   width: 80%;
   max-width: 1020px;
   margin-bottom: 30px;
+}
+
+.article-card img {
+  object-fit: cover;
+  max-height: 250px;
 }
 
 .page-title {
@@ -168,5 +172,11 @@ code {
   .btn-group .btn:last-child {
     border-bottom-left-radius: 4px !important;
     border-bottom-right-radius: 4px !important;
+  }
+}
+
+@media(max-width: 575px) {
+  .article-card .card-text{
+      padding: 30px;
   }
 }

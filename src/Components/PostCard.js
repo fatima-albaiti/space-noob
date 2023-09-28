@@ -18,7 +18,7 @@ function PostCard(props) {
         <div className='article-card'>
         <Row>
             <Col sm={6} xs={12} md={4} lg={3}>
-                <Image className=' w-100 h-100' src={post.imgUrl}  />
+                <Image className='w-100 h-100' src={post.imgUrl}  />
             </Col>
             <Col className='card-text' sm={6} xs={12} md={8} lg={9}>
                 <h4>{post.title}</h4>
