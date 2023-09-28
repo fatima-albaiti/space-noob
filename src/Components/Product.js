@@ -1,4 +1,4 @@
-import { Row, Col, Card, Button, ButtonGroup } from "react-bootstrap";
+import { Col, Card, Button } from "react-bootstrap";
 
 function Product(props) {
     const { product } = props;
