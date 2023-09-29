@@ -76,7 +76,7 @@ function Posts(props) {
                 imgUrl: "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
             }
         ])
-    }, []);
+    }, [postType]);
 
     const renderPosts = (list) => {
         return list.map((item)=> (

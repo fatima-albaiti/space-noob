@@ -4,7 +4,7 @@ import { PostType } from "../Objects/PostType";
 function Post(props) {
 
     const { postType } = props;
-    const [searchParams] = useSearchParams();
+    //const [searchParams] = useSearchParams();
     
     return (
         <div className="content news news-article">

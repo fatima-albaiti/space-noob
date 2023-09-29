@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row, Col, Card, Button, ButtonGroup } from "react-bootstrap";
+import { Row, Button, ButtonGroup } from "react-bootstrap";
 import { Category } from "../Objects/Category";
 import Product from "./Product";
 

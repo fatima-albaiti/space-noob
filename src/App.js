@@ -5,7 +5,7 @@ import Posts from './Components/Posts';
 import Store from './Components/Store';
 import { PostType } from './Objects/PostType';
 
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './Components/Post';
 import ScrollToTop from './Components/ScrollToTop';
