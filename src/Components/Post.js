@@ -1,5 +1,5 @@
 import { Image } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+//import { useSearchParams } from "react-router-dom";
 import { PostType } from "../Objects/PostType";
 function Post(props) {
 
