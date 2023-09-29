@@ -2,7 +2,6 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import Posts from './Components/Posts';
-import Blog from './Components/Blog';
 import Store from './Components/Store';
 import { PostType } from './Objects/PostType';
 
