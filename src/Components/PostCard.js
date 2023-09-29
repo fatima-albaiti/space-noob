@@ -24,7 +24,7 @@ function PostCard(props) {
                 <h4>{post.title}</h4>
                 <p className='date'>{post.date}</p>
                 <p className='summary multiline-ellipsis three-lines'> {post.content}</p>
-                 <Button onClick={handleReadMore} className='float-end float-bottom read-more btn-lg'>Read more</Button>
+                 <Button onClick={handleReadMore} className='float-end float-bottom read-more btn-lg button-primary'>Read more</Button>
             </Col>
         </Row>
         

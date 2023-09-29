@@ -12,7 +12,7 @@ function Product(props) {
             <Card.Body>
             <Card.Title className="multiline-ellipsis two-lines">{product.productName}</Card.Title>
                 <Card.Text className="multiline-ellipsis three-lines">{product.productDescription}</Card.Text>
-                <Button onClick={()=>{handleGoToAmazon(product.productUrl)}}>Go to Amazon</Button>
+                <Button className="button-primary" onClick={()=>{handleGoToAmazon(product.productUrl)}}>Go to Amazon</Button>
             </Card.Body>
         </Card>
         </Col>
