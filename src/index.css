@@ -92,11 +92,12 @@ code {
 
 .button-primary {
   border-radius: 40px!important;
+  padding: 10px 25px 10px 25px!important;
   font-size: large!important;
   /* background-color: #51abcb!important; */
-  background-color: transparent!important;
+  background-color: #4EA5D9!important;
   border-color: white!important;
-  border-width: 1px!important;
+  border-width: 0px!important;
 }
 
 /* .amazon-card button {
@@ -145,7 +146,7 @@ code {
 
 .amazon-card {
   height: 80%;
-  max-height: 480px;
+  max-height: 490px;
   max-width: 300px;
   margin: auto;
   margin-top: 20px;
