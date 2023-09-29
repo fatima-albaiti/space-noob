@@ -1,6 +1,6 @@
 {
   "name": "space-noob",
-  "homepage": "https://space-noob.com",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
