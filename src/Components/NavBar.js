@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import '../nav.css';
 
 function NavBar() {
-  const [opacity, setOpacity] = useState(0);
+  const [opacity, setOpacity] = useState(1);
   const ref = useRef(null);
 
   const NAVBAR_ACTIVE = 100;
@@ -16,19 +16,28 @@ function NavBar() {
     setOpacity(getBytes(scrollDiff));
   }
 
-  function getBytes(val) {
+  const getBytes = (val) => {
     if(val >= 1) return 'ff';
     return Math.floor(val * 255).toString(16).padStart(2, '0');
   }
 
+  const updateNavbarColor = (opacity) => {
+    ref.current.style.setProperty('background-color', `${BACKGROUND_COLOR}${opacity}`, 'important');
+  }
+
   useLayoutEffect(()=> {
-    ref.current.style.setProperty('background-color', `${BACKGROUND_COLOR}${opacity}`, 'important')
+    if(window.innerWidth > 990){
+      updateNavbarColor(opacity);
+    }
+    
   }, [opacity])
 
   useEffect(() => {
-    changeBackground()
+    updateNavbarColor();
+    changeBackground();
     // adding the event when scroll change background
     window.addEventListener("scroll", changeBackground)
+    return () => window.removeEventListener("scroll", changeBackground);
   })
 
   return (
