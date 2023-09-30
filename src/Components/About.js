@@ -5,7 +5,7 @@ function About() {
         <div className="section">
             <div className="home about">
                 <h1>
-                    About The Space Noob
+                    About Space Noob
                 </h1>
                 <p>
                     I'm just someone who recently got interested in stargazing and all things space and astronomy. 
