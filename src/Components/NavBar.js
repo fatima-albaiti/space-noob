@@ -6,14 +6,19 @@ import '../nav.css';
 
 function NavBar() {
   const [opacity, setOpacity] = useState(1);
+  const [width, setWidth] = useState(window.innerWidth);
   const ref = useRef(null);
 
   const NAVBAR_ACTIVE = 100;
   const BACKGROUND_COLOR = '#041937';
 
-  const changeBackground = () => {
-    let scrollDiff = (1+((window.scrollY-NAVBAR_ACTIVE)/NAVBAR_ACTIVE));
-    setOpacity(getBytes(scrollDiff));
+  const changeBackground = (opacity) => {
+    setOpacity(getBytes((1+((window.scrollY-NAVBAR_ACTIVE)/NAVBAR_ACTIVE))));
+    updateNavbarColor(opacity)
+  }
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
   }
 
   const getBytes = (val) => {
@@ -21,25 +26,28 @@ function NavBar() {
     return Math.floor(val * 255).toString(16).padStart(2, '0');
   }
 
-  const updateNavbarColor = (opacity) => {
-    ref.current.style.setProperty('background-color', `${BACKGROUND_COLOR}${opacity}`, 'important');
+  const updateNavbarColor = (navOpacity) => {
+    ref.current.style.setProperty('background-color', `${BACKGROUND_COLOR}${navOpacity}`, 'important');
   }
 
   useLayoutEffect(()=> {
-    if(window.innerWidth > 990){
-      updateNavbarColor(opacity);
+    if(width > 990){
+      changeBackground(opacity);
     }
-    
-  }, [opacity])
+  }, [opacity]);
 
   useEffect(() => {
-    updateNavbarColor();
     changeBackground();
     // adding the event when scroll change background
-    window.addEventListener("scroll", changeBackground)
-    return () => window.removeEventListener("scroll", changeBackground);
-  })
+    window.addEventListener("scroll", changeBackground);
+    window.addEventListener('resize', handleWindowSizeChange);
 
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  });
+  
   return (
     <Navbar ref={ref} data-bs-theme="dark" fixed='top' expand="lg" className= "bg-body-tertiary navbar-custom active">
       <Container>
