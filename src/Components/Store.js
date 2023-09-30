@@ -36,13 +36,10 @@ function Store() {
         ])
     }, []);
 
-    
-
     const handleCategory = (e) => {
         setCategory(e.target.innerHTML);
     }
-
-    
+ 
     return (
         <div className="content">
             <h2 className="page-title">Store</h2>
@@ -60,7 +57,6 @@ function Store() {
                         product.category === category && <Product product={product} />  
                     ))
                 }
-                
             </Row>
         </div>
     )
