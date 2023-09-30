@@ -148,6 +148,20 @@ code {
   padding-bottom: 0px!important;
 }
 
+.form-control.input-primary {
+  border: solid 1px rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  
+}
+
+.input-primary::placeholder {
+  color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.contact-form p {
+  margin-bottom: 30px;
+}
+
 @media screen and (max-width: 450px) {
   .btn-group {
     flex-direction: column;
