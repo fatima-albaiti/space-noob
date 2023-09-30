@@ -1,23 +1,29 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import '../nav.css';
 
 function NavBar() {
-  //navbar scroll when active state
-  const [navbar, setNavbar] = useState(false)
-  const NAVBAR_HEIGHT = 60;
+  const [opacity, setOpacity] = useState(0);
+  const ref = useRef(null);
+
+  const NAVBAR_ACTIVE = 100;
+  const BACKGROUND_COLOR = '#041937';
 
   const changeBackground = () => {
-    console.log(window.scrollY);
-    console.log(navbar);
-    if (window.scrollY >= NAVBAR_HEIGHT) {
-      setNavbar(true)
-    } else {
-      setNavbar(false)
-    }
+    let scrollDiff = (1+((window.scrollY-NAVBAR_ACTIVE)/NAVBAR_ACTIVE));
+    setOpacity(getBytes(scrollDiff));
   }
+
+  function getBytes(val) {
+    if(val >= 1) return 'ff';
+    return Math.floor(val * 255).toString(16).padStart(2, '0');
+  }
+
+  useLayoutEffect(()=> {
+    ref.current.style.setProperty('background-color', `${BACKGROUND_COLOR}${opacity}`, 'important')
+  }, [opacity])
 
   useEffect(() => {
     changeBackground()
@@ -26,7 +32,7 @@ function NavBar() {
   })
 
   return (
-    <Navbar data-bs-theme="dark" fixed='top' expand="lg" className={navbar ? "bg-body-tertiary navbar-custom active" : "bg-body-tertiary navbar-custom"}>
+    <Navbar ref={ref} data-bs-theme="dark" fixed='top' expand="lg" className= "bg-body-tertiary navbar-custom active">
       <Container>
         <Navbar.Brand href="/">Space Noob</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
