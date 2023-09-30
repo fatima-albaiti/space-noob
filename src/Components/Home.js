@@ -1,10 +1,10 @@
-import About from "./About";
+import Main from "./Main";
 import Contact from "./Contact";
 import '../index.css'
 function Home() {
     return (
         <>
-        <About />
+        <Main />
         <Contact />
         </>
     )

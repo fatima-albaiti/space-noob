@@ -1,17 +1,16 @@
-function About() {
+function Main() {
     return (
         <div className="section">
             <div className="about">
                 <h1>
-                    This is a website about space
+                    Diary of a Space Noob
                 </h1>
                 <p>
-                    It's just a hobby site for myself :) 
-                    Me, the space noob
+                    Join me on my journey to learn more about space and stargazing
                 </p>
             </div>
         </div>
     )
 }
 
-export default About;
+export default Main;
