@@ -38,6 +38,14 @@ code {
   background-size: 100px 100px;
 }
 
+
+#stargazing {
+  width: 50%;
+  min-width: 260px;
+  align-self: center;
+  margin: 30px;
+}
+
 .home {
   width: 80%;
   max-width: 800px;
@@ -48,6 +56,10 @@ code {
   flex-direction: column;
   display: flex;
   justify-content: center;
+}
+
+.home.about {
+  padding: 0px;
 }
 
 .main h1 {
