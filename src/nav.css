@@ -24,9 +24,7 @@
   right: 15px;
 }
 
-.nav-link {
-    margin: 5px;
-}
+
 
 @media screen and (min-width: 990px) {
   .navbar.bg-body-tertiary{
@@ -38,5 +36,10 @@
   .navbar.bg-body-tertiary{
     background-color: #041937ff!important;
   }
-  
+}
+
+@media screen and (min-width: 990px) {
+  .nav-link {
+    margin: 15px;
+  }
 }
