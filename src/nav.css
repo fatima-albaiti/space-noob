@@ -24,7 +24,11 @@
   right: 15px;
 }
 
-
+#stargazing {
+  width: 50%;
+  min-width: 260px;
+  align-self: center;
+}
 
 @media screen and (min-width: 990px) {
   .navbar.bg-body-tertiary{

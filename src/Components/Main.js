@@ -1,7 +1,7 @@
 function Main() {
     return (
         <div className="section">
-            <div className="about">
+            <div className="home main">
                 <h1>
                     Diary of a Space Noob
                 </h1>

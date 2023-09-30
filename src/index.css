@@ -26,16 +26,8 @@ code {
   max-width: 500px;
 }
 
-.about {
-  width: 80%;
-  max-width: 800px;
-  height: 50%;
-  min-height: 350px;
-  margin: 20%;
-  padding: 50px;
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
+.main {
+  
   background:
     linear-gradient(to right, white 4px, transparent 4px) 0 0,
     linear-gradient(to left, white 4px, transparent 4px) 100% 100%,
@@ -46,11 +38,23 @@ code {
   background-size: 100px 100px;
 }
 
-.about h1 {
+.home {
+  width: 80%;
+  max-width: 800px;
+  height: 50%;
+  min-height: 350px;
+  margin: 20%;
+  padding: 50px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
+.main h1 {
   font-size: 2.1em;
 }
 
-.about p {
+.main p {
   font-size: 1.1em;
 }
 
@@ -207,7 +211,7 @@ code {
       padding: 30px;
   }
 
-  .about {
+  .main {
     height: 40%;
     min-height: 300px;
   }
