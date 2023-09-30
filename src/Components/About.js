@@ -11,7 +11,7 @@ function About() {
                     I'm just someone who recently got interested in stargazing and all things space and astronomy. 
                     All I want is to learn more about it at my own pace, no pressure. I'm still a noob :)
                 </p>
-                <Image id="stargazing" src={stargazing} thumbnail />
+                <Image id="stargazing" src={stargazing} rounded />
             </div>
         </div>
     )
