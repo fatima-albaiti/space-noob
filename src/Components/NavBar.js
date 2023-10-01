@@ -34,7 +34,9 @@ function NavBar() {
     if(width > 990){
       changeBackground(opacity);
     }
-  }, [opacity]);
+  }, 
+  // eslint-disable-next-line
+  [opacity]);
 
   useEffect(() => {
     changeBackground();

@@ -78,6 +78,7 @@ function Posts(props) {
         ])
     }, [postType]);
 
+  
     const renderPosts = (list) => {
         return list.map((item)=> (
             <PostCard key={item.id} post={item} postType={postType} />

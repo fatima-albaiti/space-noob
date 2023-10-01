@@ -23,7 +23,7 @@
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
-  background-image: url(img/night-sky.svg);
+  background-image: url(img/starry-bg.png);
   background-size: cover;
   background-repeat: repeat-y;
   /* background-attachment: fixed; */
