@@ -1,29 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import emailjs from '@emailjs/browser'
-import {useRef, useEffect} from 'react'
+import {useRef} from 'react'
 
 function Contact() {
     const form = useRef();
 
-    useEffect(() => {
-        // Add reCaptcha
-        const script = document.createElement("script")
-        script.src = "https://www.google.com/recaptcha/api.js?render=6LfzQW4oAAAAAHWCTxLKkygfQkLqgUrQjkNTodTo"
-        script.addEventListener("load", handleLoaded)
-        document.body.appendChild(script)
-      }, [])
-    
-
-      const handleLoaded = _ => {
-        window.grecaptcha.ready(_ => {
-          window.grecaptcha
-            .execute("6LfzQW4oAAAAAHWCTxLKkygfQkLqgUrQjkNTodTo", { action: "homepage" })
-            .then(token => {
-              // ...
-            })
-        })
-      }
     const sendEmail = (e) => {
         e.preventDefault();
 
@@ -40,7 +22,7 @@ function Contact() {
         <div className='section'>
             <h1>Send an e-mail</h1>
             <p>Got any suggestions or enquiries? Let me know!</p>
-            <Form onSubmit={sendEmail} ref={form} className='contact-form'>
+            <Form method='post' onSubmit={sendEmail} ref={form} className='contact-form'>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Control name='messageSubject' placeholder='Subject' className='input-primary' type="text" />
             </Form.Group>
@@ -50,11 +32,7 @@ function Contact() {
             <Button className='button-primary'  variant="primary" type="submit">
             Send E-mail
             </Button>
-            <div
-                className="g-recaptcha"
-                data-sitekey="6LfzQW4oAAAAAHWCTxLKkygfQkLqgUrQjkNTodTo"
-                data-size="invisible"
-            ></div>
+            <div className="g-recaptcha" data-sitekey="6LfsfW4oAAAAACQb95ZFesS7Sg1_1qvpBDMtZcAs"></div>
             </Form>
 
         </div>
