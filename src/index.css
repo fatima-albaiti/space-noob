@@ -107,16 +107,19 @@ code {
 
 .news p {
   font-size: large;
-  width: 80%;
   max-width: 1020px;
 }
 
-.news-article img {
-  width: 80%;
+.news-article img, .news-article div {
+  width: 90%;
   max-width: 1020px;
   margin-bottom: 30px;
+  font-size: 0.8em;
 }
 
+.news-article hr {
+  margin-top: 40px;
+}
 .article-card img {
   object-fit: cover;
   max-height: 250px;
@@ -137,7 +140,6 @@ code {
 
 .read-more {
   position: absolute;
-  bottom: 0;
   right: 0;
   margin-right: 30px;
   margin-bottom: 20px;

@@ -1,13 +1,48 @@
 import { Image } from "react-bootstrap";
 import { PostType } from "../Objects/PostType";
+import { useSearchParams, Link } from 'react-router-dom'
+import { useState, useCallback, useEffect } from 'react'
+import { doc, getDoc} from 'firebase/firestore'
+import { db } from '../firebase_setup/firebase';
+import moment from 'moment';
+import {Parser} from 'html-to-react';
+
 function Post(props) {
 
+    const [searchParams] = useSearchParams();
+    const [post, setPost] = useState({postDate: {}});
+    const postId = searchParams.get("id");
+    const htmlParser = new Parser();
     const { postType } = props;
+
+    const fetchData = useCallback( async () => {
+        const postRef = doc(db, "posts", postId);
+        const postItem = await getDoc(postRef);
+        console.log(postItem.data());
+        setPost(postItem.data());
+    }, [postId])
+
+    useEffect(()=> {
+        fetchData();
+    }, [fetchData])
     
+    const getDate = (timestamp) => {
+        return moment(new Date(timestamp.seconds * 1000)).format('DD/MM/YYYY');
+    }
+
+    const renderSource = (srcUrl) => {
+        return (
+            <>
+            <span className="date">Source: </span>
+            <Link className="date" to={srcUrl}>URL</Link>
+            </>
+        )
+    }
+
     return (
         <div className="content news news-article">
-            <h2>Article Title</h2>
-            <p className="date">Author: Tama Al-Baiti | 01/01/2023</p>
+            <h2>{post.postTitle}</h2>
+            <p className="date">{post.postAuthor} | {getDate(post.postDate)}</p>
             <div className="share-icons">
                 <i className="bi bi-share share-icon "></i>
                 <i className="bi bi-facebook share-icon "></i>
@@ -15,12 +50,14 @@ function Post(props) {
                 <i className="bi bi-whatsapp share-icon "></i>
             </div>
             
-            <Image src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" />
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim odio et consectetur tempor. Vestibulum hendrerit tortor et dui consectetur, at volutpat dui euismod. Morbi nec tortor convallis, finibus diam vitae, ultricies nulla. Quisque dictum pulvinar massa ac imperdiet. Nulla faucibus euismod efficitur. Sed vitae est ipsum. Phasellus cursus mollis felis, a pulvinar ex commodo vel. Aliquam tincidunt maximus erat ac rhoncus. Etiam diam lectus, pellentesque eget mauris ut, sagittis vehicula magna. Curabitur malesuada fermentum ornare. Integer fringilla sapien quis turpis volutpat, mattis fermentum erat placerat. Vestibulum aliquam eros ac quam condimentum, a eleifend velit vehicula. Vivamus dolor arcu, dictum a libero consequat, posuere condimentum massa.
-            </p>
+            <Image src={post.imgUrl} />
+            
+            <div className="post-content">
+                {htmlParser.parse(post.postContent)}
+                <hr></hr>
+            </div>
 
-            {postType === PostType.ARTICLE && <p className="date">Source: www.google.com</p>}
+            {postType === PostType.ARTICLE && renderSource(post.postSrc)}
         </div>
     )
 }
