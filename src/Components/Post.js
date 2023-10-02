@@ -6,6 +6,10 @@ import { doc, getDoc} from 'firebase/firestore'
 import { db } from '../firebase_setup/firebase';
 import moment from 'moment';
 import {Parser} from 'html-to-react';
+import { FacebookShareButton, FacebookIcon, 
+    WhatsappShareButton, WhatsappIcon, FacebookMessengerIcon, FacebookMessengerShareButton,
+    EmailIcon, EmailShareButton,
+    TwitterShareButton, TwitterIcon } from 'react-share';
 
 function Post(props) {
 
@@ -44,10 +48,46 @@ function Post(props) {
             <h2>{post.postTitle}</h2>
             <p className="date">{post.postAuthor} | {getDate(post.postDate)}</p>
             <div className="share-icons">
-                <i className="bi bi-share share-icon "></i>
-                <i className="bi bi-facebook share-icon "></i>
-                <i className="bi bi-messenger share-icon "></i>
-                <i className="bi bi-whatsapp share-icon "></i>
+            <FacebookShareButton className="share-icon"
+                url={window.location.href}
+                quote={post.postContent}
+                hashtag="#spacenoob"
+            >
+            <FacebookIcon size={32} round />
+            </FacebookShareButton>
+
+            <TwitterShareButton className="share-icon"
+                url={window.location.href}
+                quote={post.postContent}
+                hashtag="#spacenoob"
+            >
+            <TwitterIcon size={32} round />
+            </TwitterShareButton>
+
+            <WhatsappShareButton
+                className="share-icon"
+                url={window.location.href}
+                quote={post.postContent}
+                hashtag="#spacenoob"
+            >
+            <WhatsappIcon size={32} round></WhatsappIcon>
+            </WhatsappShareButton>
+
+            <FacebookMessengerShareButton
+                className="share-icon"
+                url={window.location.href}
+                quote={post.postContent}
+            >
+            <FacebookMessengerIcon size={32} round></FacebookMessengerIcon>
+            </FacebookMessengerShareButton>
+
+            <EmailShareButton
+                className="share-icon"
+                url={window.location.href}
+                quote={post.postContent}
+            >
+            <EmailIcon size={32} round></EmailIcon>
+            </EmailShareButton>
             </div>
             
             <Image src={post.imgUrl} />
