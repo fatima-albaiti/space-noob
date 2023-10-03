@@ -1,15 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {useRef, useState} from 'react'
-import ReCAPTCHA from 'react-google-recaptcha';
 import {db} from '../firebase_setup/firebase';
 import {collection, addDoc} from '@firebase/firestore'
 function Contact() {
     const form = useRef();
     const [subject, setSubject] = useState("");
     const [body, setBody] = useState("");
-    const [ setRecaptcha ] = useState('')
-    const [ isVerified, setIsVerified ] = useState('')
     const collection_name = "contact_messages";
 
     function save() { 
@@ -19,12 +16,8 @@ function Contact() {
     }
     
     const sendEmail = (e) => {
-        
         e.preventDefault();
-        if(isVerified){
-        console.log(subject, body);
-             save();
-        }
+        save()
     };
 
     const handleSubjectChange = (e) => {
@@ -35,16 +28,7 @@ function Contact() {
         setBody(e.target.value);
     }
     
-    const onChange = (value) => {
-        console.log(value);
-        value ? setRecaptcha(value) : setRecaptcha('');
-        
-        if (value) {
-        setIsVerified(true);
-        } else {
-        setIsVerified(false);
-        }
-    }
+    
     return (
         <div className='section'>
             <h1>Send an e-mail</h1>
@@ -56,10 +40,7 @@ function Contact() {
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Control onChange={handleBodyChange} value={body} name='messageBody' placeholder='Type your message here...' className='input-primary' as="textarea" rows={3} />
             </Form.Group>
-            <ReCAPTCHA
-                sitekey='6LfsfW4oAAAAACQb95ZFesS7Sg1_1qvpBDMtZcAs'
-                onChange={onChange}
-             />
+            
             <Button className='button-primary'  variant="primary" type="submit">
             Send E-mail
             </Button>
