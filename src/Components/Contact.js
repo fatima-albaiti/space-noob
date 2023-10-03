@@ -37,8 +37,7 @@ function Contact() {
     
     const onChange = (value) => {
         console.log(value);
-        
-        //setRecaptcha(value);
+        value ? setRecaptcha(value);
         
         if (value) {
         setIsVerified(true);
