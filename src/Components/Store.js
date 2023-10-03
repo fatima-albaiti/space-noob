@@ -1,40 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Row, Button, ButtonGroup } from "react-bootstrap";
 import { Category } from "../Objects/Category";
 import Product from "./Product";
+import { db } from '../firebase_setup/firebase';
+import { collection, query, onSnapshot, where } from 'firebase/firestore'
 
 function Store() {
     const [category, setCategory] = useState(Category.BOOKS);
     const [productsList, setProductsList] = useState([]);
 
+    const fetchData = useCallback( async () => {
+        const posts_collection = collection(db, "products")
+        const q = query(posts_collection, where("productCategory", "==", category));
+        onSnapshot(q, (querySnapShot) => {
+        const data = querySnapShot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }))
+        setProductsList(data);
+        });
+    }, [category])
+
     useEffect(()=> {
-        setProductsList([
-            {
-                productId: 1,
-                productUrl: "https://amzn.eu/d/12Usic6",
-                imgUrl: "https://m.media-amazon.com/images/I/A1KS+MYYXkL._SL1500_.jpg",
-                productName: "Stargazing for Beginners: Explore the Wonders of the Night Sky",
-                productDescription: "Discover the wonders of the Universe with this complete introduction to observing and understanding the night sky.",
-                category: "Books",
-            },
-            {
-                productId: 2,
-                productUrl: "https://amzn.eu/d/12Usic6",
-                imgUrl: "https://m.media-amazon.com/images/I/A1KS+MYYXkL._SL1500_.jpg",
-                productName: "Stargazing for Beginners: Explore the Wonders of the Night Sky",
-                productDescription: "Discover the wonders of the Universe with this complete introduction to observing and understanding the night sky.",
-                category: "Books",
-            },
-            {
-                productId: 3,
-                productUrl: "https://amzn.eu/d/12Usic6",
-                imgUrl: "https://m.media-amazon.com/images/I/A1KS+MYYXkL._SL1500_.jpg",
-                productName: "Stargazing for Beginners: Explore the Wonders of the Night Sky",
-                productDescription: "Discover the wonders of the Universe with this complete introduction to observing and understanding the night sky.",
-                category: "Books",
-            }
-        ])
-    }, []);
+        fetchData()
+        
+    }, [fetchData]);
 
     const handleCategory = (e) => {
         setCategory(e.target.innerHTML);
@@ -54,7 +44,7 @@ function Store() {
             <Row>
                 {
                     productsList.map((product) => (
-                        product.category === category && <Product product={product} />  
+                        <Product product={product} />  
                     ))
                 }
             </Row>

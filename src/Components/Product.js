@@ -6,7 +6,7 @@ function Product(props) {
         window.location.href = productUrl;
     }
     return (
-        <Col className="col-4" xl={3} lg={3} md={4} sm={6} xs={12}>
+        <Col key={product.id} className="col-4" xl={3} lg={3} md={4} sm={6} xs={12}>
         <Card key={product.productId} className="amazon-card">
             <Card.Img src={product.imgUrl}></Card.Img>
             <Card.Body>
