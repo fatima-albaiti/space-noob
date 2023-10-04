@@ -33,12 +33,13 @@ function MoonTonight() {
   }
 
   const getIllumination = (illumination) => {
-    switch (illumination) {
+    console.log(illumination);
+    switch (true) {
       case (illumination === 0): return "You can't see it but it's still there.";
-      case (illumination > 0 && illumination < 30): return "It's not very bright";
-      case (illumination >= 30 && illumination < 70): return "It's moderately bright";
-      case (illumination >= 70 && illumination < 100): return "It's very bright";
-      case (illumination === 100): return "It's the brightest it could be";
+      case (illumination > 0 && illumination < 30): return "It's not very bright.";
+      case (illumination >= 30 && illumination < 70): return "It's moderately bright.";
+      case (illumination >= 70 && illumination < 100): return "It's very bright.";
+      case (illumination === 100): return "It's the brightest it could be.";
       default: return "";
     }
   }
@@ -50,7 +51,7 @@ function MoonTonight() {
         <p>The moon is in the <span>{moonPhase}</span> phase tonight.</p>
         
       <Image className="moon-phase" src={getImageUrl(moonPhase)}></Image>
-      <p>It's <span>{moonIllumination}% illuminated</span>. {getIllumination(moonIllumination)}</p>
+      <p>It's <span>{moonIllumination}% illuminated</span>. {getIllumination(parseInt(moonIllumination))}</p>
       <br /><br />
      
       </div>
