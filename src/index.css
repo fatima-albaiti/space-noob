@@ -225,6 +225,11 @@ code {
   margin-bottom: 20px;
 }
 
+#moon-phase button {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 .moon-tonight span {
   color: #e6f9af;
   font-weight: 600;

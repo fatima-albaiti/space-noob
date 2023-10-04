@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { MoonPhase } from "../Objects/MoonPhase";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function MoonTonight() {
   const [moonPhase, setMoonPhase] = useState('');
   const [moonIllumination, setMoonIllumination] = useState('');
+  const navigate = useNavigate();
 
   const fetchData = async() => {
     const response = await axios.get("https://us-central1-space-noob.cloudfunctions.net/api/astronomy");
     const data = response.data.root.astronomy.astro;
     setMoonPhase(data.moon_phase);
     setMoonIllumination(data.moon_illumination);
+  }
+
+  const handleClick = () => {
+    navigate({pathname: '/stargazing'})
   }
 
   useEffect(() => {
@@ -53,8 +59,7 @@ function MoonTonight() {
         
       <Image className="moon-phase" src={getImageUrl(moonPhase)}></Image>
       <p>It's <span>{moonIllumination}% illuminated</span>. {getIllumination(parseInt(moonIllumination))}</p>
-      <br /><br />
-     
+      <Button onClick={handleClick} className="button-primary">Do you wanna go stargazing?</Button>
       </div>
     </div>
     </section>

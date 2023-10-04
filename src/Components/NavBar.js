@@ -61,6 +61,7 @@ function NavBar() {
             <Nav.Link href="/news">News</Nav.Link>
             <Nav.Link href="/store">Store</Nav.Link>
             <Nav.Link href="/blogs">Blog</Nav.Link>
+            <Nav.Link href="/stargazing">Stargazing</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
