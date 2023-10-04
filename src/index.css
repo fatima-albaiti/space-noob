@@ -210,6 +210,20 @@ code {
   margin-bottom: 30px;
 }
 
+.moon-phase {
+  width: 50%;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.moon-tonight span {
+  color: #e6f9af;
+  font-weight: 600;
+}
+
+.moon-tonight {
+  font-size: 1.1em;
+}
 @media screen and (max-width: 450px) {
   .btn-group {
     flex-direction: column;
