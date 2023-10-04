@@ -1,3 +1,5 @@
+import { Button } from "react-bootstrap";
+
 function Main() {
     return (
         <div className="section">
@@ -8,6 +10,9 @@ function Main() {
                 <p>
                     Join me on my journey to learn more about space and stargazing
                 </p>
+
+                <p className="subtext">Let's look at the moon together</p>
+                <a href={"#moon-phase"}><Button className="button-primary">Shall we?</Button></a>
             </div>
         </div>
     )

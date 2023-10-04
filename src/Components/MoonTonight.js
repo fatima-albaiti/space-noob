@@ -45,7 +45,8 @@ function MoonTonight() {
   }
 
   return (
-    <div className="section">
+    <section id="moon-phase">
+    <div  className="section">
       <div className="moon-tonight">
         <h1>The Moon Tonight</h1>
         <p>The moon is in the <span>{moonPhase}</span> phase tonight.</p>
@@ -56,6 +57,7 @@ function MoonTonight() {
      
       </div>
     </div>
+    </section>
   )
 }
 
