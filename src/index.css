@@ -36,7 +36,6 @@ code {
   background-size: 100px 100px;
 }
 
-
 #stargazing {
   width: 50%;
   min-width: 260px;
@@ -219,6 +218,12 @@ code {
 .moon-tonight span {
   color: #e6f9af;
   font-weight: 600;
+}
+
+.stargazing-checklist {
+  width: 70%;
+  max-width: 350px;
+  margin: 30px;
 }
 
 .moon-tonight {

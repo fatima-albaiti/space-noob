@@ -3,6 +3,7 @@ import NavBar from './Components/NavBar';
 import Home from './Components/Home';
 import Posts from './Components/Posts';
 import Store from './Components/Store';
+import Stargazing from './Components/Stargazing';
 import { PostType } from './Objects/PostType';
 
 import {Routes, Route} from 'react-router-dom';
@@ -28,6 +29,7 @@ function App() {
           <Route path='/store' element={<Store />} />
           <Route path='/article' element={<Post postType={PostType.ARTICLE} />} />
           <Route path='/blog' element={<Post postType={PostType.BLOG} />} />
+          <Route path='/stargazing' element={<Stargazing />} />
         </Routes>
       </header>
 
