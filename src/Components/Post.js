@@ -1,9 +1,8 @@
 import { Image } from "react-bootstrap";
 import { PostType } from "../Objects/PostType";
 import { useSearchParams, Link } from 'react-router-dom'
-import { useState, useCallback, useEffect } from 'react'
-import { doc, getDoc} from 'firebase/firestore'
-import { db } from '../firebase_setup/firebase';
+import { useState, useEffect, useCallback } from 'react'
+import axios from "axios";
 import moment from 'moment';
 import {Parser} from 'html-to-react';
 import { FacebookShareButton, FacebookIcon, 
@@ -20,10 +19,9 @@ function Post(props) {
     const { postType } = props;
 
     const fetchData = useCallback( async () => {
-        const postRef = doc(db, "posts", postId);
-        const postItem = await getDoc(postRef);
-        console.log(postItem.data());
-        setPost(postItem.data());
+        const response = await axios.get(`https://us-central1-space-noob.cloudfunctions.net/api/post?id=${postId}`);
+        setPost(response.data);
+        console.log(response.data);
     }, [postId])
 
     useEffect(()=> {

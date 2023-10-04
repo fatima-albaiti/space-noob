@@ -1,23 +1,17 @@
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import { PostType } from "../Objects/PostType";
-import { db } from '../firebase_setup/firebase';
-import { collection, query, orderBy, onSnapshot, where } from 'firebase/firestore'
+import axios from "axios";
 function Posts(props) {
     const [postsList, setPostsList] = useState([]);
     const { postType } = props;
 
-    const fetchData = useCallback( async () => {
-        const posts_collection = collection(db, "posts")
-        const q = query(posts_collection, orderBy("postDate", "desc"), where("postType", "==", postType));
-        onSnapshot(q, (querySnapShot) => {
-        const data = querySnapShot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-        }))
-        setPostsList(data);
-        });
-    }, [postType])
+    const fetchData = useCallback(
+        async() => {
+          const response = await axios.get(`https://us-central1-space-noob.cloudfunctions.net/api/posts?postType=${postType}`);
+          setPostsList(response.data);
+        }, [postType]
+    ) 
 
     useEffect(()=> {
         fetchData();

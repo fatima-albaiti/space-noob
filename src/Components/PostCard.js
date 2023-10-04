@@ -13,7 +13,7 @@ function PostCard(props) {
     const params = {id: post.id};
 
     const getDate = (timestamp) => {
-        return moment(new Date(timestamp.seconds * 1000)).format('DD/MM/YYYY');
+        return moment(new Date(timestamp._seconds * 1000)).format('DD/MM/YYYY');
     }
 
     const handleReadMore = () => {

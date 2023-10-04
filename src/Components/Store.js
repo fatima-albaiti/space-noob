@@ -1,30 +1,21 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { Row, Button, ButtonGroup } from "react-bootstrap";
 import { Category } from "../Objects/Category";
 import Product from "./Product";
-import { db } from '../firebase_setup/firebase';
-import { collection, query, onSnapshot, where } from 'firebase/firestore'
+import axios from "axios";
 
 function Store() {
     const [category, setCategory] = useState(Category.BOOKS);
     const [productsList, setProductsList] = useState([]);
 
-    const fetchData = useCallback( async () => {
-        const posts_collection = collection(db, "products")
-        const q = query(posts_collection, where("productCategory", "==", category));
-        onSnapshot(q, (querySnapShot) => {
-        const data = querySnapShot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-        }))
-        setProductsList(data);
-        });
-    }, [category])
+    const fetchData = async() => {
+      const response = await axios.get('https://us-central1-space-noob.cloudfunctions.net/api/products');
+      setProductsList(response.data);
+    }
 
     useEffect(()=> {
         fetchData()
-        
-    }, [fetchData]);
+    }, []);
 
     const handleCategory = (e) => {
         setCategory(e.target.innerHTML);
@@ -44,7 +35,7 @@ function Store() {
             <Row>
                 {
                     productsList.map((product) => (
-                        <Product product={product} />  
+                        <Product key={product.id} product={product} />  
                     ))
                 }
             </Row>
