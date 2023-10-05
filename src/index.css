@@ -151,6 +151,14 @@ code {
   border-width: 0px!important;
 }
 
+.btn-secondary {
+  background-color: #4EA5D9!important;
+}
+
+.btn-secondary.active {
+    background-color: #1e6e9c!important;
+}
+
 .read-more {
   position: absolute;
   right: 0;

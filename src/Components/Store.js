@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Row, Button, ButtonGroup } from "react-bootstrap";
 import { Category } from "../Objects/Category";
 import Product from "./Product";
@@ -8,17 +8,20 @@ function Store() {
     const [category, setCategory] = useState(Category.BOOKS);
     const [productsList, setProductsList] = useState([]);
 
-    const fetchData = async() => {
-      const response = await axios.get('https://us-central1-space-noob.cloudfunctions.net/api/products');
-      setProductsList(response.data);
-    }
+    const fetchData = useCallback(
+        async () => {
+            const response = await axios.get(`https://us-central1-space-noob.cloudfunctions.net/api/products?category=${category}`);
+            setProductsList(response.data);
+        }, [category]
+    )
 
     useEffect(()=> {
         fetchData()
-    }, []);
+    }, [fetchData]);
 
     const handleCategory = (e) => {
         setCategory(e.target.innerHTML);
+        console.log(category);
     }
  
     return (
