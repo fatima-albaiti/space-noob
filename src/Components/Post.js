@@ -29,7 +29,7 @@ function Post(props) {
     }, [fetchData])
     
     const getDate = (timestamp) => {
-        return moment(new Date(timestamp.seconds * 1000)).format('DD/MM/YYYY');
+        return moment(new Date(timestamp._seconds * 1000)).format('DD/MM/YYYY');
     }
 
     const renderSource = (srcUrl) => {
