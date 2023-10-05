@@ -248,6 +248,26 @@ code {
 .moon-tonight {
   font-size: 1.1em;
 }
+
+div.no-articles {
+    height: 50vh;
+    text-align: center;
+    display: table;
+    width: 100%;
+}
+
+.no-articles h4 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
 @media screen and (max-width: 450px) {
   .btn-group {
     flex-direction: column;

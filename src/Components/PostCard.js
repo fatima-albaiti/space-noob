@@ -17,7 +17,7 @@ function PostCard(props) {
     }
 
     const handleReadMore = () => {
-       navigate({pathname: postType === PostType.ARTICLE ? '/article' : '/blog', search: `?${createSearchParams(params)}`})
+       navigate({pathname: postType === PostType.ARTICLE ? '/article' : '/diary-entry', search: `?${createSearchParams(params)}`})
     }
     
     return (

@@ -24,11 +24,11 @@ function App() {
         <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/blogs' element={<Posts postType={PostType.BLOG} />} />
+          <Route path='/diary' element={<Posts postType={PostType.BLOG} />} />
           <Route path='/news' element={<Posts postType={PostType.ARTICLE} />} />
           <Route path='/store' element={<Store />} />
           <Route path='/article' element={<Post postType={PostType.ARTICLE} />} />
-          <Route path='/blog' element={<Post postType={PostType.BLOG} />} />
+          <Route path='/diary-entry' element={<Post postType={PostType.BLOG} />} />
           <Route path='/stargazing' element={<Stargazing />} />
         </Routes>
       </header>
