@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import { PostType } from "../Objects/PostType";
-import {TailSpin} from 'react-loader-spinner';
+import  {TailSpin } from 'react-loader-spinner';
 import axios from "axios";
 function Posts(props) {
     const [postsList, setPostsList] = useState([]);
