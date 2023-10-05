@@ -41,7 +41,7 @@ function Store() {
             <ButtonGroup aria-label="Basic example">
                 <Button onClick={(event)=>handleCategory(event)} className={category === Category.BOOKS ? "active": undefined} variant="secondary">{Category.BOOKS}</Button>
                 <Button onClick={(event)=>handleCategory(event)} className={category === Category.GADGETS ? "active": undefined} variant="secondary">{Category.GADGETS}</Button>
-                <Button onClick={(event)=>handleCategory(event)} className={category === Category.ACCESSORIES ? "active": undefined} variant="secondary">{Category.ACCESSORIES}</Button>
+                {/* <Button onClick={(event)=>handleCategory(event)} className={category === Category.ACCESSORIES ? "active": undefined} variant="secondary">{Category.ACCESSORIES}</Button> */}
                 <Button onClick={(event)=>handleCategory(event)} className={category === Category.OTHER ? "active": undefined} variant="secondary">{Category.OTHER}</Button>
             </ButtonGroup>
 
