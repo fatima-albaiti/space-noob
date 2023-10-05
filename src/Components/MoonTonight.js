@@ -39,7 +39,6 @@ function MoonTonight() {
   }
 
   const getIllumination = (illumination) => {
-    console.log(illumination);
     switch (true) {
       case (illumination === 0): return "You can't see it but it's still there.";
       case (illumination > 0 && illumination < 30): return "It's not very bright.";
