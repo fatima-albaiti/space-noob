@@ -300,6 +300,11 @@ div.no-articles {
       padding: 30px;
   }
 
+  .article-card {
+    background-color: black;
+    padding-bottom: 10px;
+  }
+
   .main {
     height: 65%;
     min-height: 300px;
