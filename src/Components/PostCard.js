@@ -27,9 +27,9 @@ function PostCard(props) {
                 <Image className='w-100 h-100' src={post.imgUrl}  />
             </Col>
             <Col className='card-text' sm={6} xs={12} md={8} lg={9}>
-                <h4>{post.postTitle}</h4>
+                <h4 className='multiline-ellipsis one-line'>{post.postTitle}</h4>
                 <p className='date'>{getDate(post.postDate)}</p>
-                <p className='summary multiline-ellipsis three-lines'> {post.postContent}</p>
+                <p className='summary multiline-ellipsis three-lines'> {post.postPreview}</p>
                  <Button onClick={handleReadMore} className='float-end float-bottom read-more btn-lg button-primary'>Read more</Button>
             </Col>
         </Row>

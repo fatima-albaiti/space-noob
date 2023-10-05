@@ -180,8 +180,11 @@ code {
   white-space: pre-wrap; /* let the text wrap preserving spaces */
 }
 
+.one-line {
+  -webkit-line-clamp: 1; /* start showing ellipsis when 1st line is reached */
+}
 .two-lines {
-  -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+  -webkit-line-clamp: 2; /* start showing ellipsis when 2nd line is reached */
 }
 
 .three-lines {
