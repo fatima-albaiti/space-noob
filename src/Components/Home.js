@@ -7,8 +7,8 @@ function Home() {
     return (
         <>
         <Main />
-        <About />
         <MoonTonight />
+        <About />
         <Contact />
         </>
     )
