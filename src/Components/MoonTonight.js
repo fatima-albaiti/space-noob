@@ -27,7 +27,7 @@ function MoonTonight() {
   const getImageUrl = (phase) => {
     switch (phase) {
       case MoonPhase.WANING_GIBBOUS: return require('../img/moon-phases/moon-phase1.png');
-      case MoonPhase.LAST_QUARTER: return require('../img/moon-phases/moon-phase1.png');
+      case MoonPhase.LAST_QUARTER: return require('../img/moon-phases/moon-phase2.png');
       case MoonPhase.WANING_CRESCENT: return require('../img/moon-phases/moon-phase3.png');
       case MoonPhase.FULL_MOON: return require('../img/moon-phases/moon-phase4.png');
       case MoonPhase.NEW_MOON: return require('../img/moon-phases/moon-phase5.png');
